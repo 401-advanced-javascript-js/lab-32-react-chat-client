@@ -7,22 +7,22 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      words: '',
+      words: [],
     };
   }
 
-  // 
-  updateWords = (words) => {
-      this.setState({words});
+  // update set with entered words
+  updateWords = (newWord) => {
+    this.setState({words: [...this.state.words, newWord]});
   };
 
   // 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Words words={this.state.words}/>
         <Form handleInboundWords={this.updateWords}/>
-      </React.Fragment>
+      </>
     );
   }
 };
