@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
-const Words = props => {
+import { ChatContext } from './context/chat-context';
 
-  let result = []; 
+const Words = () => {
+  let context = useContext(ChatContext);
 
-  for (let i = Math.max(0, props.words.length - 15); i < props.words.length; i++) {
-    result.push(<h3>{props.words[i]}</h3>);
+  let result = [];
+
+  for (let i = Math.max(0, context.words.length - 15); 
+          i < context.words.length; i++) {
+    result.push(<h3>{context.words[i]}</h3>);
   }
 
   return <>{result}</>;

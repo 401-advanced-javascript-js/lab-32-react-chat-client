@@ -1,49 +1,21 @@
-import React from 'react';
-import io from 'socket.io-client';
+import React, {useContext} from 'react';
 
-// URL of chat socket.io server
-const url = 'http://localhost:3000';
-const socket = io.connect(url);
+import { ChatContext } from './context/chat-context';
 
-class Form extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      typedInput: '',
-    };
-    socket.on('incoming', payload => this.updateWords(payload));
-  }
+const Form = () => {
+  const context = useContext(ChatContext);
 
-  // call passed fuction with words inputted
-  updateWords = words => {
-    this.props.handleInboundWords(words);
-  };
-
-  // 
-  handleSubmit = event => {
-    event.preventDefault();
-    event.target.reset();
-    socket.emit('chat', this.state.typedInput);
-  };
-
-  handleNewWords = event => {
-    this.setState({ typedInput: event.target.value });
-  };
-
-  render() {
-    return (
-      <>
-        <h2>{this.state.words}</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="typedInput"
-            placeholder="New Words"
-            onChange={this.handleNewWords}
-          />
-        </form>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <form onSubmit={context.handleSubmit}>
+        <input
+          name="typedInput"
+          placeholder="New Words"
+          onChange={context.handleNewWords}
+        />
+      </form>
+    </>
+  );
+};
 
 export default Form;

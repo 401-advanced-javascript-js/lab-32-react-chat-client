@@ -2,6 +2,8 @@ import React from 'react';
 import Words from './words.js';
 import Form from './form.js';
 
+import ChatContextProvider from './context/chat-context';
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -20,8 +22,12 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <Words words={this.state.words}/>
-        <Form handleInboundWords={this.updateWords}/>
+        <ChatContextProvider>
+          {/* <Words words={this.state.words}/> */}
+          <Words />
+          {/* <Form handleInboundWords={this.updateWords}/> */}
+          <Form />
+        </ChatContextProvider>
       </>
     );
   }
