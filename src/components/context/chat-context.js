@@ -4,8 +4,8 @@ import io from 'socket.io-client';
 export const ChatContext = React.createContext();
 
 // URL of chat socket.io server
-const url = 'http://localhost:3000';
-const socket = io.connect(url);
+const HerokDeploymentURL = 'https://chat-app-sock.herokuapp.com/';
+const socket = io.connect(HerokDeploymentURL);
 
 export default class ContextProvider extends React.Component {
   constructor(props) {
