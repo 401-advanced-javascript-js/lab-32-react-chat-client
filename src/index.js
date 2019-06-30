@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import App from './app.js';
-import './styles.css';
+import('./styles.scss');
 
 class Main extends React.Component {
   render() {

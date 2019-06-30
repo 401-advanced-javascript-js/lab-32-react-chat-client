@@ -8,10 +8,12 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <ChatContextProvider>
-          <Words />
-          <Form />
-        </ChatContextProvider>
+        <main>
+          <ChatContextProvider>
+            <Form />
+            <Words />
+          </ChatContextProvider>
+        </main>
       </>
     );
   }

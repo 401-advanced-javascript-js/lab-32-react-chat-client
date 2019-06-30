@@ -1,17 +1,24 @@
 import React, {useContext} from 'react';
 
 import { ChatContext } from '../context/chat-context';
+import('./words.scss');
 
 const Words = () => {
   let context = useContext(ChatContext);
 
   let result = [];
 
-  for (let i = Math.max(0, context.words.length - 15); i < context.words.length; i++) {
+  for (let i = 0; i < Math.min(15, context.words.length); i++) {
     result.push(<h3>{context.words[i]}</h3>);
   }
 
-  return <>{result}</>;
+  return (
+    <>
+      <div id="messages">
+        {result}
+      </div>
+    </>
+  );
 };
 
 export default Words;

@@ -24,7 +24,7 @@ export default class ContextProvider extends React.Component {
   }
 
   updateWords = (newWord) => {
-    this.setState({words: [...this.state.words, newWord]});
+    this.setState({words: [ newWord, ...this.state.words]});
   };
 
   handleSubmit = (event) => {
