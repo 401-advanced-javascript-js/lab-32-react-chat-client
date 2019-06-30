@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 
-import { ChatContext } from './context/chat-context';
+import { ChatContext } from '../context/chat-context';
 
 const Form = () => {
   const context = useContext(ChatContext);
